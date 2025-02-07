@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR KRRISH</title>
+    <style>
+        /* Background */
+        body {
+            background-image: url("hahah.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px black;
+        }
+
+        .container {
+    position: relative;
+    width: 400px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px; /* Reduced padding */
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Image inside div */
+.container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+/* Text inside the image */
+.text {
+    position: absolute;
+    top: 50%; /* Moves text to center of image */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%; /* Ensures text stays inside the image */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.4; /* Makes text more readable */
+    text-shadow: 2px 2px 4px black; /* Keeps text readable on any background */
+    overflow-wrap: break-word;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: -5px; /* Moves buttons up */
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 5px;
+}
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .yes-btn {
+            background: #bd214f;
+            color: white;
+        }
+
+        .no-btn {
+            background: #ab257c;
+            color: white;
+        }
+
+        /* Hidden extra YES buttons */
+        .extra-yes {
+            display: none;
+            position: absolute;
+            font-size: 16px;
+            background:#bd214f;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>WILL YOU BE MY VALENTINE?</h1>
+
+    <div class="container">
+        <img src="krrish.jpg" alt="Valentine Image">
+        <div class="text">
+            i know you will find this all very lame but i am just practicing for my test. I also want to let you know how much I love you! ❤️ It's crazy to think how my day starts with you and ends with you. You’re in my mind all day. I want to spend my lifetime with you, and I hope all our dreams come true. I LOVE YOU SO MUCH! 💖
+        </div>
+        <div class="buttons">
+            <button class="btn yes-btn" id="yesBtn">YES</button>
+            <button class="btn no-btn" id="noBtn">NO</button>
+        </div>
+    </div>
+
+    <audio id="song" src="Photograph(PagalNew.Com.Se).mp3"></audio>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const container = document.querySelector(".container");
+        const song = document.getElementById("song");
+
+        noBtn.addEventListener("click", function() {
+            for (let i = 0; i < 5; i++) { // Create 5 random YES buttons
+                let newYes = document.createElement("button");
+                newYes.classList.add("extra-yes");
+                newYes.textContent = "YES";
+                newYes.style.left = Math.random() * 80 + "%";
+                newYes.style.top = Math.random() * 80 + "%";
+                newYes.onclick = function() {
+                    song.play();
+                    alert("YAY! You said YES! ❤️");
+                };
+                container.appendChild(newYes);
+                newYes.style.display = "block";
+            }
+        });
+
+        yesBtn.addEventListener("click", function() {
+            song.play();
+            alert("YAY! You said YES! ❤️");
+        });
+    </script>
+
+</body>
+</html>
+
